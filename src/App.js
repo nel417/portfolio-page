@@ -7,7 +7,6 @@ import Nav from "react-bootstrap/Nav";
 import "./App.css";
 import HomePage from "./HomePage";
 import About from "./About";
-import Contact from "./Contact";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,21 +14,21 @@ class App extends React.Component {
     this.state = {
       title: "Nick Landreville",
       headerLinks: [
-        { title: "Home", path: "/" },
+        { title: "Home", path: process.env.PUBLIC_URL + "/" },
         { title: "About", path: "/about" },
-        { title: "Contact", path: "/contact" }
+        { title: "Contact", path: "/contact" },
       ],
       home: {
         title: "Nick Landreville Studios",
         subHeading: "Software Engineer and Inclusive Designer",
-        text: "View recent projects below(links are tabbable)"
+        text: "View recent projects below(links are tabbable)",
       },
       about: {
-        title: "About"
+        title: "About",
       },
       contact: {
-        title: "Contacts"
-      }
+        title: "Contacts",
+      },
     };
   }
   render() {
@@ -41,7 +40,7 @@ class App extends React.Component {
             <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
             <Navbar.Collapse id="navbar-toggle">
               <Nav className="ml-auto">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to={process.env.PUBLIC_URL + "/"}>
                   Home
                 </Link>
                 <Link className="nav-link" to="/about">
